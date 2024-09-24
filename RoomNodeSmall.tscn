@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://sek0crnuncse"]
-
-[ext_resource type="PackedScene" uid="uid://b4flwn104f6hl" path="res://src/resources/objects/MapObjects/RoomNode.tscn" id="1_yf05y"]
-
-[node name="RoomNodeSmall" instance=ExtResource("1_yf05y")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
