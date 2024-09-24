@@ -1,0 +1,105 @@
+[gd_scene load_steps=19 format=3 uid="uid://c4hu8jjku0g1c"]
+
+[ext_resource type="PackedScene" uid="uid://gpuqqvf46idm" path="res://src/resources/objects/Billboard.tscn" id="1_3fiq0"]
+[ext_resource type="Texture2D" uid="uid://dqq8fj5fvcljs" path="res://src/resources/textures/outline.png" id="2_3njcb"]
+[ext_resource type="Script" path="res://src/resources/objects/StickerBillboard.gd" id="2_dtsw4"]
+[ext_resource type="PackedScene" uid="uid://baahbw4b6pyr2" path="res://src/resources/objects/StickerView.tscn" id="3_ccbgb"]
+[ext_resource type="Texture2D" uid="uid://drf65s082d8kj" path="res://src/resources/stickers/leap_of_faith.png" id="3_iig87"]
+[ext_resource type="Texture2D" uid="uid://xwerup04hmo6" path="res://src/resources/stickers/first.png" id="4_cxumt"]
+[ext_resource type="Texture2D" uid="uid://dtlpwrha82005" path="res://src/resources/stickers/manypathstonowhere.png" id="4_ju5q4"]
+[ext_resource type="Texture2D" uid="uid://b4mxcq8pgqtae" path="res://src/resources/stickers/now_you_see_it.png" id="4_udknk"]
+[ext_resource type="Texture2D" uid="uid://du8q4qdk3dc3u" path="res://src/resources/stickers/into_darkness.png" id="5_0bjkx"]
+[ext_resource type="Texture2D" uid="uid://b7u2lo2ct0805" path="res://src/resources/stickers/mainhub.png" id="6_63fx0"]
+[ext_resource type="Texture2D" uid="uid://dwgpxpefn6gu4" path="res://src/resources/stickers/intromanypathstonowhere.png" id="6_dvky0"]
+[ext_resource type="Texture2D" uid="uid://dah1l0aporcba" path="res://src/resources/stickers/stuckinarut.png" id="7_u812v"]
+[ext_resource type="Texture2D" uid="uid://sowghrfpna74" path="res://src/resources/stickers/manypathstonowherechoice.png" id="7_x7edy"]
+[ext_resource type="Texture2D" uid="uid://cjdp7m1cy77bb" path="res://src/resources/stickers/manypathstonowherechoice2.png" id="8_132ld"]
+[ext_resource type="Texture2D" uid="uid://dh6s28hufjbyw" path="res://src/resources/stickers/manypathstonowhere2.png" id="9_648so"]
+[ext_resource type="Texture2D" uid="uid://c3e0vonrr1h0l" path="res://src/resources/stickers/returntolobby.png" id="13_jltm1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpyn5"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jsf01"]
+material = SubResource("StandardMaterial3D_mpyn5")
+size = Vector2(9.95, 25.95)
+
+[node name="StickerBillboard" groups=["stickerbillboard"] instance=ExtResource("1_3fiq0")]
+script = ExtResource("2_dtsw4")
+
+[node name="Stickers" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0132658, 0, 0)
+
+[node name="LobbySticker" parent="Stickers" index="0" groups=["beginning_sticker"] instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, 11.9602)
+picture = ExtResource("4_cxumt")
+wisdom = "Every journey is a series of choices. The first is to begin the journey. "
+is_visible = true
+
+[node name="aGameOfLeapFrog" parent="Stickers" index="1" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, 9.95986)
+picture = ExtResource("4_udknk")
+wisdom = "When you absorb your surroundings, you may notice things you didn't see before."
+
+[node name="LeapOfFaith" parent="Stickers" index="2" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, 7.9643)
+picture = ExtResource("3_iig87")
+wisdom = "Taking the first step can be harder than the rest of the challenge. "
+
+[node name="NowYouSeeIt" parent="Stickers" index="3" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, 5.96391)
+picture = ExtResource("7_u812v")
+wisdom = "Some choices can leave us running around in circles."
+
+[node name="ManyPathsToNowhere" parent="Stickers" index="4" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, 3.96196)
+picture = ExtResource("4_ju5q4")
+wisdom = "Some choices leave us running around a lot without really getting anywhere. "
+
+[node name="MainHub" parent="Stickers" index="5" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, 1.96157)
+picture = ExtResource("6_63fx0")
+wisdom = "Live on your own watch, not on someone else's."
+
+[node name="IntoDarkness" parent="Stickers" index="6" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, -0.0339875)
+picture = ExtResource("5_0bjkx")
+wisdom = "Failing to succeed does not mean failing to progress. "
+
+[node name="IntoDarkness2" parent="Stickers" index="7" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, -2.03437)
+picture = ExtResource("6_dvky0")
+wisdom = "Some paths are clearer than others. "
+
+[node name="DownTheRabbitHole" parent="Stickers" index="8" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, -4.02516)
+wisdom = "Some paths are straight forward. "
+
+[node name="ManyPathsToNowhere2" parent="Stickers" index="9" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, -6.02555)
+picture = ExtResource("7_x7edy")
+wisdom = "A choice may be as simple as going left or going right. "
+
+[node name="ManyPathsToNowhere3" parent="Stickers" index="10" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, -8.02111)
+picture = ExtResource("8_132ld")
+wisdom = "The choice doesn't matter if the outcome is the same. "
+
+[node name="ReturnToMainHub" parent="Stickers" index="11" groups=["return_sticker"] instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, -10.0215)
+picture = ExtResource("13_jltm1")
+wisdom = "If you don't like where you've ended up, try doing something else. "
+
+[node name="ManyPathsToNowhere4" parent="Stickers" index="12" instance=ExtResource("3_ccbgb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0264828, 3.95759, -12.0106)
+picture = ExtResource("9_648so")
+wisdom = "When you return to where you have been, things aren't always as remembered. "
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="2"]
+transform = Transform3D(-2.23962e-07, 0, 1, 0, 3.9658, 0, -5.12365, 0, -4.37114e-08, 0.00594902, 0, 0)
+texture = ExtResource("2_3njcb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00952864, 0, 0)
+mesh = SubResource("PlaneMesh_jsf01")

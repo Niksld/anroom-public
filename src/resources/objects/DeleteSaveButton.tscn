@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cboy0arj0ha6t"]
+
+[ext_resource type="Script" path="res://src/resources/objects/DeleteSaveButton.gd" id="1_gwt7a"]
+[ext_resource type="Texture2D" uid="uid://dqq8fj5fvcljs" path="res://src/resources/textures/outline.png" id="1_pf5da"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_evebc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h20dn"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i3xbq"]
+material = SubResource("StandardMaterial3D_h20dn")
+size = Vector2(6, 3)
+
+[node name="DeleteSaveButton" type="Area3D" groups=["delete_save_button"]]
+script = ExtResource("1_gwt7a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5.865, 0, 0, 0, 2.7, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_evebc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_i3xbq")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1, 0, 0, 0.001)
+texture = ExtResource("1_pf5da")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.001)
+text = "Your progress is saved automatically as you play.
+Click here to delete your Save Game and Restart"
+font_size = 86
+autowrap_mode = 2
+width = 1200.0

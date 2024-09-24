@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://do55igv5e3h6x"]
+
+[ext_resource type="Texture2D" uid="uid://cbhf7daseu0do" path="res://src/resources/textures/dev_location.png" id="2_1fstc"]
+[ext_resource type="Script" path="res://src/resources/objects/LocationTrigger.gd" id="2_hhuhj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8bncg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu6hd"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_1fstc")
+uv1_offset = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_nftvg"]
+material = SubResource("StandardMaterial3D_bu6hd")
+
+[node name="LocationTrigger" type="Node3D" groups=["trigger", "trigger_location"]]
+script = ExtResource("2_hhuhj")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_8bncg")
+
+[node name="PositionHelper" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nftvg")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]

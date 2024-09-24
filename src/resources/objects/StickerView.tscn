@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=3 uid="uid://baahbw4b6pyr2"]
+
+[ext_resource type="Script" path="res://src/resources/objects/StickerView.gd" id="1_q8fyd"]
+[ext_resource type="Texture2D" uid="uid://dqq8fj5fvcljs" path="res://src/resources/textures/outline.png" id="2_nvxi1"]
+[ext_resource type="Texture2D" uid="uid://dtlpwrha82005" path="res://src/resources/stickers/manypathstonowhere.png" id="3_hjxqh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xwab6"]
+shading_mode = 0
+albedo_texture = ExtResource("2_nvxi1")
+uv1_scale = Vector3(1, 0.91, 1)
+uv1_offset = Vector3(0, 1.04, 0)
+uv2_scale = Vector3(2, 2, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_scgla"]
+material = SubResource("StandardMaterial3D_xwab6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rq5o6"]
+
+[sub_resource type="Animation" id="Animation_emk8o"]
+resource_name = "RESET"
+length = 0.01
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.01)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.193, 0.264, 0.25)
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label3D:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_7yc6j"]
+resource_name = "show"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.01, 1, 1, 0, 0, -0.0098635)
+tracks/2/type = "scale_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 2, 2, 2)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.193, 0.264, 0.25, 1, 1, 0.6, 0.712, 0.8)
+
+[sub_resource type="Animation" id="Animation_8pxyp"]
+resource_name = "unwrap"
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 2, 2, 2, 1, 1, 2, 2, 4)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.0098635, 1, 1, 2, 0, -0.01)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3D")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0.005, 1, 1, -2, 0, -0.005)
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label3D:transparency")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2vht"]
+_data = {
+"RESET": SubResource("Animation_emk8o"),
+"show": SubResource("Animation_7yc6j"),
+"unwrap": SubResource("Animation_8pxyp")
+}
+
+[node name="StickerView" type="Area3D" groups=["persist"]]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_q8fyd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 3.59989e-21, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_scgla")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.193, 0, 3.7749e-08, 0, 0.264, 0, -2.91422e-08, 0, -0.25, 0, 0, -0.01)
+texture = ExtResource("3_hjxqh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.9, 0, -2.22045e-16, 0, 2, 0, 0, 0, 0.052, 0, 0, 0)
+shape = SubResource("BoxShape3D_rq5o6")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, -0.005)
+transparency = 1.0
+text = "Placeholder"
+font_size = 72
+autowrap_mode = 3
+width = 812.55
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_c2vht")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="unblock_animations"]

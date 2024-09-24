@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4flwn104f6hl"]
+
+[ext_resource type="Script" path="res://src/resources/objects/MapObjects/RoomNode.gd" id="1_g1aal"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_41v2p"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e51re"]
+material = SubResource("StandardMaterial3D_41v2p")
+size = Vector2(0.6, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcn8n"]
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nnkx2"]
+material = SubResource("StandardMaterial3D_pcn8n")
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5gxh"]
+
+[node name="RoomNode" type="Area3D"]
+script = ExtResource("1_g1aal")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+mesh = SubResource("PlaneMesh_e51re")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.000793912, 0, 0)
+mesh = SubResource("PlaneMesh_nnkx2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.001, 0, 0, 0, 0.492, 0, 0, 0, 0.486, 0, 0, 0)
+shape = SubResource("BoxShape3D_n5gxh")

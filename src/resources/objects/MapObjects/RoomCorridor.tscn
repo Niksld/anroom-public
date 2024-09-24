@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b62pf403ddpb6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqnee"]
+resource_local_to_scene = true
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ui18b"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_xqnee")
+size = Vector2(0.5, 0.25)
+
+[node name="RoomCorridor" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_ui18b")

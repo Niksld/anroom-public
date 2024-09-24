@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c81smqf3ur5oy"]
+
+[ext_resource type="PackedScene" uid="uid://h0bd35qyrqnq" path="res://src/resources/objects/Trigger.tscn" id="1_ny7st"]
+[ext_resource type="Texture2D" uid="uid://b751g56gye47a" path="res://src/resources/textures/dev_teleport.png" id="2_032g4"]
+[ext_resource type="Script" path="res://src/resources/objects/TeleportTrigger.gd" id="2_ijgk8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhgbj"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_032g4")
+uv1_offset = Vector3(-0.5, -0.5, -0.5)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ey4y"]
+material = SubResource("StandardMaterial3D_uhgbj")
+
+[node name="TeleportTrigger" groups=["trigger_teleport"] instance=ExtResource("1_ny7st")]
+script = ExtResource("2_ijgk8")
+disabled = false
+teleportee_exit_rotate_pivot_degrees = 0.0
+y_offset = 0
+skip_intersect_check = false
+destination = Vector3(0, 0, 0)
+rotation_offset_degrees = 0.0
+offset_player_by_value = false
+
+[node name="PositionHelper" parent="." index="1"]
+mesh = SubResource("BoxMesh_4ey4y")

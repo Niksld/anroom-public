@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://db1v4ve7ttdrb"]
+
+[ext_resource type="Script" path="res://src/resources/objects/DeleteSaveDialog.gd" id="1_086l0"]
+[ext_resource type="Texture2D" uid="uid://dqq8fj5fvcljs" path="res://src/resources/textures/outline.png" id="2_lnpmm"]
+[ext_resource type="Script" path="res://src/resources/objects/DeleteSaveDialogYes.gd" id="3_7fm4d"]
+[ext_resource type="Script" path="res://src/resources/objects/DeleteSaveDialogNo.gd" id="4_8kv83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h20dn"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i3xbq"]
+material = SubResource("StandardMaterial3D_h20dn")
+size = Vector2(6, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_utipw"]
+size = Vector3(1, 0.9, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4wsti"]
+
+[node name="DeleteSaveDialog" type="Node3D" groups=["delete_save_dialog"]]
+script = ExtResource("1_086l0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_i3xbq")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1, 0, 0, 0.001)
+texture = ExtResource("2_lnpmm")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.001)
+text = "Delete Save Game?"
+font_size = 86
+autowrap_mode = 2
+width = 1200.0
+
+[node name="Yes" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="Yes"]
+transform = Transform3D(0.38088, 0, 0, 0, 0.66654, 0, 0, 0, 1, -1.5, -0.2, 0.002)
+texture = ExtResource("2_lnpmm")
+
+[node name="Label3D" type="Label3D" parent="Yes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.2, 0.001)
+text = "Yes"
+font_size = 100
+autowrap_mode = 2
+width = 1200.0
+
+[node name="Area3D" type="Area3D" parent="Yes"]
+script = ExtResource("3_7fm4d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Yes/Area3D"]
+transform = Transform3D(1.78125, 0, 0, 0, 1.6, 0, 0, 0, 0.01, -1.5, -0.2, 0)
+shape = SubResource("BoxShape3D_utipw")
+
+[node name="No" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 0, 0)
+
+[node name="Label3D" type="Label3D" parent="No"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.1, 0.001)
+text = "No"
+font_size = 250
+autowrap_mode = 2
+width = 1200.0
+
+[node name="Area3D" type="Area3D" parent="No"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.3, 0)
+script = ExtResource("4_8kv83")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="No/Area3D"]
+transform = Transform3D(2.25, 0, 0, 0, 1.62, 0, 0, 0, 0.12, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_4wsti")

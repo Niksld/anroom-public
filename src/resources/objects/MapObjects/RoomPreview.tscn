@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=3 uid="uid://dp5c0nk3h4sr4"]
+
+[ext_resource type="Script" path="res://src/resources/objects/MapObjects/RoomPreview.gd" id="1_5bloh"]
+[ext_resource type="Texture2D" uid="uid://cyvfotaqy6u24" path="res://src/resources/previews/lof.png" id="2_k7t4o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mkp4p"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oqtq1"]
+material = SubResource("StandardMaterial3D_mkp4p")
+size = Vector2(5, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3pq8"]
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tk3tj"]
+material = SubResource("StandardMaterial3D_n3pq8")
+size = Vector2(4.75, 5.75)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bw3ai"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_renyo"]
+material = SubResource("StandardMaterial3D_bw3ai")
+size = Vector2(4.5, 5.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_87igj"]
+
+[sub_resource type="Animation" id="Animation_1uiep"]
+resource_name = "RESET"
+length = 0.01
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_lo5yi"]
+resource_name = "hide_preview"
+length = 0.3
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.2, 1, 0, 0, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_gscf3"]
+resource_name = "show_animation"
+length = 0.3
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.2, 1, 1, 1, 1)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.05, 1, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fh7o3"]
+_data = {
+"RESET": SubResource("Animation_1uiep"),
+"hide_preview": SubResource("Animation_lo5yi"),
+"show_animation": SubResource("Animation_gscf3")
+}
+
+[node name="RoomPreview" type="Area3D"]
+script = ExtResource("1_5bloh")
+
+[node name="Node" type="Node3D" parent="."]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.05, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 1, 0)
+mesh = SubResource("PlaneMesh_oqtq1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.001, 1, 0)
+mesh = SubResource("PlaneMesh_tk3tj")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.002, 1, 0)
+mesh = SubResource("PlaneMesh_renyo")
+skeleton = NodePath("../..")
+
+[node name="Sprite3D" type="Sprite3D" parent="Node"]
+transform = Transform3D(-1.42445e-08, 0, 0.395, 0, 0.351945, 0, -0.325875, 0, -1.7266e-08, 0.1, 0.45, -0.025)
+texture = ExtResource("2_k7t4o")
+region_enabled = true
+region_rect = Rect2(331, 174, 1242, 678)
+
+[node name="Label3D" type="Label3D" parent="Node"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0107002, 3, 0)
+text = "Placeholder"
+font_size = 75
+vertical_alignment = 0
+autowrap_mode = 2
+width = 900.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.142396, 0, 0, 0, 2.9952, 0, 0, 0, 2.808, -1, 1, 0)
+shape = SubResource("BoxShape3D_87igj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fh7o3")
+}

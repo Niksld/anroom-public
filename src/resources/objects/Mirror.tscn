@@ -1,0 +1,100 @@
+[gd_scene load_steps=23 format=3 uid="uid://dy7uy21yqj3or"]
+
+[ext_resource type="Script" path="res://src/resources/objects/Mirror.gd" id="1_h5jml"]
+[ext_resource type="ArrayMesh" uid="uid://bavnec6qaybp2" path="res://src/models/mirror.obj" id="2_hsgea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyjt1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ayopm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61v8o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwu6i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5ajj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxu1n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xy8mp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjk22"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm1qs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_siat0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i4ym"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmp3w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7kvo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpgqh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csme7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqj5u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kk4t0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej5rh"]
+
+[sub_resource type="Animation" id="Animation_nd0cj"]
+resource_name = "bananas_rotate"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 0.1, 0.1, 0.1, 2, 1, 1, 1, 1, 3, 1, 0.1, 0.1, 0.1, 4, 1, 1, 1, 1)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, -1.5708, 4.71239), Vector3(6.28319, 4.71239, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25jlg"]
+_data = {
+"bananas_rotate": SubResource("Animation_nd0cj")
+}
+
+[node name="Mirror" type="Node3D"]
+script = ExtResource("1_h5jml")
+
+[node name="Mirror" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.061062, -0.0838805, -0.181275, -0.176961, 0.110631, 0.00841694, 0.0926366, 0.156045, -0.10341, 0, 0, 0)
+mesh = ExtResource("2_hsgea")
+surface_material_override/0 = SubResource("StandardMaterial3D_vyjt1")
+surface_material_override/1 = SubResource("StandardMaterial3D_ayopm")
+surface_material_override/2 = SubResource("StandardMaterial3D_61v8o")
+surface_material_override/3 = SubResource("StandardMaterial3D_bwu6i")
+surface_material_override/4 = SubResource("StandardMaterial3D_e5ajj")
+surface_material_override/5 = SubResource("StandardMaterial3D_fxu1n")
+surface_material_override/6 = SubResource("StandardMaterial3D_xy8mp")
+surface_material_override/7 = SubResource("StandardMaterial3D_jjk22")
+surface_material_override/8 = SubResource("StandardMaterial3D_nm1qs")
+surface_material_override/9 = SubResource("StandardMaterial3D_siat0")
+surface_material_override/10 = SubResource("StandardMaterial3D_2i4ym")
+surface_material_override/11 = SubResource("StandardMaterial3D_jmp3w")
+surface_material_override/12 = SubResource("StandardMaterial3D_l7kvo")
+surface_material_override/13 = SubResource("StandardMaterial3D_gpgqh")
+surface_material_override/14 = SubResource("StandardMaterial3D_csme7")
+surface_material_override/15 = SubResource("StandardMaterial3D_fqj5u")
+surface_material_override/16 = SubResource("StandardMaterial3D_kk4t0")
+surface_material_override/17 = SubResource("StandardMaterial3D_ej5rh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Mirror")
+libraries = {
+"": SubResource("AnimationLibrary_25jlg")
+}

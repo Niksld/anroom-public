@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0hvkfao1eud2"]
+
+[ext_resource type="PackedScene" uid="uid://ddub1a6h1pjt4" path="res://src/resources/objects/AppearingCube.tscn" id="1_hb8aa"]
+[ext_resource type="Script" path="res://src/resources/objects/BridgePart.gd" id="1_wghh6"]
+
+[node name="BridgePart" type="Node3D"]
+script = ExtResource("1_wghh6")
+
+[node name="AppearingCube2" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.613302, 0, 0)
+
+[node name="AppearingCube" parent="." instance=ExtResource("1_hb8aa")]
+
+[node name="AppearingCube3" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6133, 0, 0)
+
+[node name="AppearingCube4" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+
+[node name="AppearingCube5" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586698, 0, 0)
+
+[node name="AppearingCube6" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0, 0)
+
+[node name="AppearingCube7" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7867, 0, 0)
+
+[node name="AppearingCube8" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 0)
+
+[node name="AppearingCube9" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8133, 0, 0)
+
+[node name="AppearingCube10" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0, 0)
+
+[node name="AppearingCube11" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0133, 0, 0)
+
+[node name="AppearingCube12" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4, 0, 0)
+
+[node name="AppearingCube13" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9867, 0, 0)
+
+[node name="AppearingCube14" parent="." instance=ExtResource("1_hb8aa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6, 0, 0)

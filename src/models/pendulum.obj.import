@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://246l7tbf7s6q"
+path="res://.godot/imported/pendulum.obj-575b3d3220d5a980ba7dc061b3b82130.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pendulum.obj-575b3d3220d5a980ba7dc061b3b82130.mesh"]
+
+source_file="res://src/models/pendulum.obj"
+dest_files=["res://.godot/imported/pendulum.obj-575b3d3220d5a980ba7dc061b3b82130.mesh", "res://.godot/imported/pendulum.obj-575b3d3220d5a980ba7dc061b3b82130.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwrr1qaadbw7q"]
+
+[ext_resource type="Script" path="res://src/resources/objects/Ring.gd" id="1_7qhvf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wug1h"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_mcder"]
+inner_radius = 0.651
+outer_radius = 0.993
+rings = 24
+ring_segments = 8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7pbrl"]
+
+[node name="Ring" type="StaticBody3D" groups=["persist"]]
+script = ExtResource("1_7qhvf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_wug1h")
+mesh = SubResource("TorusMesh_mcder")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2.9, 0, 0, 0, -1.09278e-08, -2.9, 0, 0.25, -1.26763e-07, 0, 0, 0)
+shape = SubResource("CylinderShape3D_7pbrl")

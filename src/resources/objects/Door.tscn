@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://r15gq461gr1r"]
+
+[ext_resource type="Script" path="res://src/resources/objects/Door.gd" id="1_1rqnk"]
+[ext_resource type="Texture2D" uid="uid://de3tvw6qppleq" path="res://textures/dveremoment.png" id="1_l44yu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dwdme"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_l44yu")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1ahf7"]
+_surfaces = [{
+"aabb": AABB(-0.25, -5, -4.5, 0.5, 10, 9),
+"attribute_data": PackedByteArray(91, 107, 145, 191, 132, 144, 253, 64, 91, 107, 145, 191, 189, 183, 15, 65, 190, 247, 148, 191, 189, 183, 15, 65, 190, 247, 148, 191, 132, 144, 253, 64, 132, 16, 1, 193, 132, 144, 253, 64, 165, 148, 15, 193, 132, 144, 253, 64, 165, 148, 15, 193, 189, 183, 15, 65, 132, 16, 1, 193, 189, 183, 15, 65, 132, 16, 1, 193, 190, 247, 148, 191, 132, 16, 1, 193, 91, 107, 145, 191, 165, 148, 15, 193, 91, 107, 145, 191, 165, 148, 15, 193, 190, 247, 148, 191, 132, 16, 9, 65, 190, 247, 148, 191, 165, 148, 23, 65, 190, 247, 148, 191, 165, 148, 23, 65, 91, 107, 145, 191, 132, 16, 9, 65, 91, 107, 145, 191, 132, 16, 1, 193, 132, 144, 253, 64, 132, 16, 1, 193, 189, 183, 15, 65, 165, 148, 15, 193, 189, 183, 15, 65, 165, 148, 15, 193, 132, 144, 253, 64, 91, 107, 209, 63, 132, 144, 253, 64, 190, 247, 212, 63, 132, 144, 253, 64, 190, 247, 212, 63, 189, 183, 15, 65, 91, 107, 209, 63, 189, 183, 15, 65),
+"format": 4119,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0),
+"material": SubResource("StandardMaterial3D_dwdme"),
+"name": "dveremoment",
+"primitive": 3,
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 128, 190, 0, 0, 160, 64, 0, 0, 144, 192, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 128, 190, 0, 0, 160, 192, 0, 0, 144, 192, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 128, 62, 0, 0, 160, 192, 0, 0, 144, 192, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 128, 62, 0, 0, 160, 64, 0, 0, 144, 192, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 128, 190, 0, 0, 160, 64, 0, 0, 144, 192, 0, 0, 255, 127, 255, 255, 0, 0, 0, 0, 128, 190, 0, 0, 160, 64, 0, 0, 144, 64, 0, 0, 255, 127, 255, 255, 0, 0, 0, 0, 128, 190, 0, 0, 160, 192, 0, 0, 144, 64, 0, 0, 255, 127, 255, 255, 0, 0, 0, 0, 128, 190, 0, 0, 160, 192, 0, 0, 144, 192, 0, 0, 255, 127, 255, 255, 0, 0, 0, 0, 128, 62, 0, 0, 160, 192, 0, 0, 144, 192, 255, 127, 0, 0, 255, 255, 255, 255, 0, 0, 128, 190, 0, 0, 160, 192, 0, 0, 144, 192, 255, 127, 0, 0, 255, 255, 255, 255, 0, 0, 128, 190, 0, 0, 160, 192, 0, 0, 144, 64, 255, 127, 0, 0, 255, 255, 255, 255, 0, 0, 128, 62, 0, 0, 160, 192, 0, 0, 144, 64, 255, 127, 0, 0, 255, 255, 255, 255, 0, 0, 128, 62, 0, 0, 160, 64, 0, 0, 144, 192, 255, 127, 255, 255, 255, 127, 255, 191, 0, 0, 128, 62, 0, 0, 160, 64, 0, 0, 144, 64, 255, 127, 255, 255, 255, 127, 255, 191, 0, 0, 128, 190, 0, 0, 160, 64, 0, 0, 144, 64, 255, 127, 255, 255, 255, 127, 255, 191, 0, 0, 128, 190, 0, 0, 160, 64, 0, 0, 144, 192, 255, 127, 255, 255, 255, 127, 255, 191, 0, 0, 128, 62, 0, 0, 160, 64, 0, 0, 144, 192, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 128, 62, 0, 0, 160, 192, 0, 0, 144, 192, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 128, 62, 0, 0, 160, 192, 0, 0, 144, 64, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 128, 62, 0, 0, 160, 64, 0, 0, 144, 64, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 128, 190, 0, 0, 160, 64, 0, 0, 144, 64, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 128, 62, 0, 0, 160, 64, 0, 0, 144, 64, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 128, 62, 0, 0, 160, 192, 0, 0, 144, 64, 255, 127, 255, 127, 255, 255, 255, 191, 0, 0, 128, 190, 0, 0, 160, 192, 0, 0, 144, 64, 255, 127, 255, 127, 255, 255, 255, 191)
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0vw6p"]
+points = PackedVector3Array(-0.25, 5, -4.5, -0.25, -5, -4.5, 0.25, -5, -4.5, 0.25, 5, -4.5, -0.25, 5, 4.5, -0.25, -5, 4.5, 0.25, -5, 4.5, 0.25, 5, 4.5)
+
+[sub_resource type="Animation" id="Animation_fsxmy"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_74nhd"]
+resource_name = "close"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 10, 0, 0.3, 1, 0, 0, 0, 0.4, 1, 0, 1, 0, 0.6, 1, 0, 0, 0, 0.7, 1, 0, 0.5, 0, 0.8, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_odj2w"]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.3, 1, 0, 10, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dkfwl"]
+_data = {
+"RESET": SubResource("Animation_fsxmy"),
+"close": SubResource("Animation_74nhd"),
+"open": SubResource("Animation_odj2w")
+}
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_1rqnk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("ArrayMesh_1ahf7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_0vw6p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody3D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_dkfwl")
+}

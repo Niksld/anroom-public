@@ -1,0 +1,190 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgccbgabe0f8e"]
+
+[ext_resource type="Script" path="res://src/resources/objects/SettingsBillboard.gd" id="1_kqwxp"]
+[ext_resource type="FontFile" uid="uid://bbd75gblkhhp1" path="res://src/resources/ui/fonts/opensans/static/OpenSans-Medium.ttf" id="2_yi22h"]
+[ext_resource type="PackedScene" uid="uid://cd7x16bx3vyw2" path="res://src/resources/objects/ConfigButton.tscn" id="3_d8ath"]
+[ext_resource type="Texture2D" uid="uid://ojf06j84o5h8" path="res://src/resources/textures/settings_info.png" id="4_s0kgf"]
+[ext_resource type="PackedScene" uid="uid://cboy0arj0ha6t" path="res://src/resources/objects/DeleteSaveButton.tscn" id="5_l2i30"]
+[ext_resource type="PackedScene" uid="uid://db1v4ve7ttdrb" path="res://src/resources/objects/DeleteSaveDialog.tscn" id="6_gno0j"]
+[ext_resource type="Texture2D" uid="uid://b7u2lo2ct0805" path="res://src/resources/stickers/mainhub.png" id="7_dfmpj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nys3k"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 2
+disable_ambient_light = true
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hd0ma"]
+material = SubResource("StandardMaterial3D_nys3k")
+size = Vector2(10.25, 30.85)
+
+[node name="SettingsBillboard" type="Node3D" groups=["persist"]]
+script = ExtResource("1_kqwxp")
+
+[node name="Background" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.21253e-16, -4.37114e-08, 1, -1, 1.19249e-08, 0, -1.19249e-08, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_hd0ma")
+skeleton = NodePath("")
+
+[node name="Headline" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, -0.0099175)
+text = "All you need to know"
+font = ExtResource("2_yi22h")
+font_size = 165
+
+[node name="Options" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+
+[node name="InvertMouse" type="Node3D" parent="Options"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.67686, -0.01)
+
+[node name="Header" type="Label3D" parent="Options/InvertMouse"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.5, 0)
+text = "Invert Mouse
+"
+font_size = 100
+
+[node name="ButtonInverted" parent="Options/InvertMouse" node_paths=PackedStringArray("paired_with_1") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.525, -1.225, 0)
+text = "Enabled"
+function = "change_mouse_inverted"
+paired_with_1 = NodePath("../ButtonNormal")
+
+[node name="ButtonNormal" parent="Options/InvertMouse" node_paths=PackedStringArray("paired_with_1") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.529, -1.225, 0)
+text = "Disabled"
+function = "change_mouse_normal"
+selected = true
+paired_with_1 = NodePath("../ButtonInverted")
+
+[node name="MouseSensitivity" type="Node3D" parent="Options"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21787, -0.01)
+
+[node name="Header" type="Label3D" parent="Options/MouseSensitivity"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.5, 0)
+text = "Mouse Sensitivity"
+font_size = 100
+
+[node name="ButtonHigh" parent="Options/MouseSensitivity" node_paths=PackedStringArray("paired_with_1", "paired_with_2") instance=ExtResource("3_d8ath")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 2.052, -1.225, 0)
+text = "High"
+function = "change_mouse_sensitivity"
+paired_with_1 = NodePath("../ButtonDefault")
+paired_with_2 = NodePath("../ButtonLow")
+
+[node name="ButtonDefault" parent="Options/MouseSensitivity" node_paths=PackedStringArray("paired_with_1", "paired_with_2") instance=ExtResource("3_d8ath")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 0.00363952, -1.225, 0)
+text = "Default"
+function = "change_mouse_sensitivity"
+selected = true
+paired_with_1 = NodePath("../ButtonHigh")
+paired_with_2 = NodePath("../ButtonLow")
+
+[node name="ButtonLow" parent="Options/MouseSensitivity" node_paths=PackedStringArray("paired_with_1", "paired_with_2") instance=ExtResource("3_d8ath")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, -2.042, -1.225, 0)
+text = "Low"
+function = "change_mouse_sensitivity"
+paired_with_1 = NodePath("../ButtonHigh")
+paired_with_2 = NodePath("../ButtonDefault")
+
+[node name="DisplayMode" type="Node3D" parent="Options"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.753266, -0.01)
+
+[node name="Header" type="Label3D" parent="Options/DisplayMode"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.5, 0)
+text = "Display Mode"
+font_size = 100
+
+[node name="ButtonWindowed" parent="Options/DisplayMode" node_paths=PackedStringArray("paired_with_1") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.525, -1.225, 0)
+text = "Windowed"
+function = "change_windowed"
+selected = true
+paired_with_1 = NodePath("../ButtonFullScreen")
+
+[node name="ButtonFullScreen" parent="Options/DisplayMode" node_paths=PackedStringArray("paired_with_1") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525, -1.225, 0)
+text = "Fullscreen"
+function = "change_fullscreen"
+paired_with_1 = NodePath("../ButtonWindowed")
+
+[node name="ResolutionScale" type="Node3D" parent="Options"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.844982, -0.01)
+
+[node name="Header" type="Label3D" parent="Options/ResolutionScale"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.5, 0)
+text = "Resolution Scale
+"
+font_size = 100
+
+[node name="ButtonQuarter" parent="Options/ResolutionScale" node_paths=PackedStringArray("paired_with_1", "paired_with_2", "paired_with_3") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.525, -1.225, 0)
+text = "0.25"
+function = "change_resolution_scale"
+paired_with_1 = NodePath("../ButtonHalf")
+paired_with_2 = NodePath("../Button3Quarters")
+paired_with_3 = NodePath("../ButtonFull")
+
+[node name="ButtonHalf" parent="Options/ResolutionScale" node_paths=PackedStringArray("paired_with_1", "paired_with_2", "paired_with_3") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525, -1.225, 0)
+text = "0.5"
+function = "change_resolution_scale"
+paired_with_1 = NodePath("../ButtonQuarter")
+paired_with_2 = NodePath("../Button3Quarters")
+paired_with_3 = NodePath("../ButtonFull")
+
+[node name="Button3Quarters" parent="Options/ResolutionScale" node_paths=PackedStringArray("paired_with_1", "paired_with_2", "paired_with_3") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.525, -1.72899, 0)
+text = "0.75"
+function = "change_resolution_scale"
+paired_with_1 = NodePath("../ButtonQuarter")
+paired_with_2 = NodePath("../ButtonHalf")
+paired_with_3 = NodePath("../ButtonFull")
+
+[node name="ButtonFull" parent="Options/ResolutionScale" node_paths=PackedStringArray("paired_with_1", "paired_with_2", "paired_with_3") instance=ExtResource("3_d8ath")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.525, -1.72899, 0)
+text = "1"
+function = "change_resolution_scale"
+selected = true
+paired_with_1 = NodePath("../ButtonQuarter")
+paired_with_2 = NodePath("../ButtonHalf")
+paired_with_3 = NodePath("../Button3Quarters")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1.2, 0, -8.74228e-08, 0, 1.2, 0, 1.04907e-07, 0, -1, 9.57691, 0, -0.1)
+texture = ExtResource("4_s0kgf")
+
+[node name="DeleteSaveButton" parent="." instance=ExtResource("5_l2i30")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, -2.7, 0)
+
+[node name="DeleteSaveDialog" parent="." instance=ExtResource("6_gno0j")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, -2.7, 1)
+
+[node name="Timer" type="Node3D" parent="."]
+
+[node name="Headline" type="Label3D" parent="Timer"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0.5, -0.0099175)
+text = "Time remaining"
+font = ExtResource("2_yi22h")
+font_size = 85
+
+[node name="Time" type="Label3D" parent="Timer"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, -0.3, -0.0099175)
+text = "Time remaining"
+font = ExtResource("2_yi22h")
+font_size = 200
+
+[node name="Wisdom" type="Label3D" parent="Timer"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.4816, 0.5, -0.0099175)
+visible = false
+text = "Live on your own watch, not on someone else's."
+font = ExtResource("2_yi22h")
+font_size = 85
+autowrap_mode = 3
+width = 892.18
+
+[node name="Sprite3D" type="Sprite3D" parent="Timer"]
+transform = Transform3D(-0.45, 0, -8.74228e-08, 0, 0.5, 0, 3.93403e-08, 0, -1, -8.25, 0.5, -0.00688726)
+visible = false
+texture = ExtResource("7_dfmpj")

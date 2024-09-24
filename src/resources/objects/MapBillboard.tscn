@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://dir7ta8w70rgv"]
+
+[ext_resource type="PackedScene" uid="uid://gpuqqvf46idm" path="res://src/resources/objects/Billboard.tscn" id="1_7jsqg"]
+[ext_resource type="PackedScene" uid="uid://b4flwn104f6hl" path="res://src/resources/objects/MapObjects/RoomNode.tscn" id="2_1ajpy"]
+[ext_resource type="Script" path="res://src/resources/objects/MapBillboard.gd" id="2_kr3kg"]
+[ext_resource type="PackedScene" uid="uid://dp5c0nk3h4sr4" path="res://src/resources/objects/MapObjects/RoomPreview.tscn" id="3_my32j"]
+
+[sub_resource type="Animation" id="Animation_tpkg0"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialText:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_83dus"]
+resource_name = "blink"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TutorialText:transparency")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0n3c"]
+_data = {
+"RESET": SubResource("Animation_tpkg0"),
+"blink": SubResource("Animation_83dus")
+}
+
+[node name="MapBillboard" groups=["map", "persist"] instance=ExtResource("1_7jsqg")]
+script = ExtResource("2_kr3kg")
+
+[node name="Label3D" type="Label3D" parent="." index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.001, 4, 0)
+text = "Choose Your Destination"
+font_size = 100
+
+[node name="TutorialText" type="Label3D" parent="." index="2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.001, 2.5, 0)
+transparency = 1.0
+text = "Go Here?"
+font_size = 100
+
+[node name="RoomNode" parent="." index="3" instance=ExtResource("2_1ajpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 1.7, 0)
+room = "LeapOfFaith"
+
+[node name="RoomPreview" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="RoomPreview" parent="RoomPreview" index="0" instance=ExtResource("3_my32j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_s0n3c")
+}

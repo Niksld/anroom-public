@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bslli5vfnxoum"]
+
+[ext_resource type="PackedScene" uid="uid://r15gq461gr1r" path="res://src/resources/objects/Door.tscn" id="1_2s05j"]
+
+[node name="ShyDoor" instance=ExtResource("1_2s05j")]
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+aabb = AABB(-0.25, -5, -4.5, 0.5, 10, 9)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
