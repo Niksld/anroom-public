@@ -24,6 +24,10 @@
 - __Úložiště__: 800 MB a více
 - __OS__: Windows 11 / Linux
 
+### __Hudba__
+
+- [MichaelCZE](https://github.com/MichaelCZE)
+
 ## Preview
 
 ![Anroom preview](./misc/anroom_demo.gif)
